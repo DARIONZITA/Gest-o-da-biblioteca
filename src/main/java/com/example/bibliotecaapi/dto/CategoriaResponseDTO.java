@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * DTO para retornar dados de Categoria ao cliente
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

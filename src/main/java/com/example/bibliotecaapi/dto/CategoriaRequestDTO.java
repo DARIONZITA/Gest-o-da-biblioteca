@@ -6,9 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * DTO para receber dados de criação/atualização de Categoria
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

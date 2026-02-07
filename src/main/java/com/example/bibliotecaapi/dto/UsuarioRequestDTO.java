@@ -1,39 +1,40 @@
 package com.example.bibliotecaapi.dto;
 
-import com.example.bibliotecaapi.model.PerfilUsuario;
-import com.example.bibliotecaapi.model.StatusUsuario;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import com.example.bibliotecaapi.model.TipoUsuario;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioRequestDTO {
 
-    @NotBlank(message = "O nome do usuário é obrigatório")
+    @NotBlank(message = "O nome é obrigatório")
     @Size(min = 3, max = 150, message = "O nome deve ter entre 3 e 150 caracteres")
     private String nome;
 
     @NotBlank(message = "O email é obrigatório")
     @Email(message = "Email inválido")
-    @Size(max = 100, message = "O email deve ter no máximo 100 caracteres")
     private String email;
 
+    @NotBlank(message = "O CPF é obrigatório")
+    @Pattern(regexp = "\\d{11}", message = "CPF deve conter 11 dígitos numéricos")
+    private String cpf;
+
     @NotBlank(message = "A senha é obrigatória")
-    @Size(min = 6, max = 100, message = "A senha deve ter entre 6 e 100 caracteres")
+    @Size(min = 6, message = "A senha deve ter no mínimo 6 caracteres")
     private String senha;
 
-    @NotBlank(message = "A matrícula é obrigatória")
-    @Size(min = 3, max = 20, message = "A matrícula deve ter entre 3 e 20 caracteres")
-    private String matricula;
+    @Pattern(regexp = "\\d{10,11}", message = "Telefone inválido")
+    private String telefone;
 
-    @NotNull(message = "O perfil é obrigatório")
-    private PerfilUsuario perfil;
+    @NotNull(message = "A data de nascimento é obrigatória")
+    @Past(message = "A data de nascimento deve ser no passado")
+    private LocalDate dataNascimento;
 
-    private StatusUsuario status;
+    private TipoUsuario tipo = TipoUsuario.COMUM;
 }

@@ -1,11 +1,11 @@
 package com.example.bibliotecaapi.dto;
 
-import com.example.bibliotecaapi.model.PerfilUsuario;
-import com.example.bibliotecaapi.model.StatusUsuario;
+import com.example.bibliotecaapi.model.TipoUsuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,9 +16,10 @@ public class UsuarioResponseDTO {
     private UUID id;
     private String nome;
     private String email;
-    private String matricula;
-    private PerfilUsuario perfil;
-    private StatusUsuario status;
+    private String cpf;
+    private String telefone;
+    private LocalDate dataNascimento;
+    private TipoUsuario tipo;
     private LocalDateTime dataCadastro;
-    private LocalDateTime dataAtualizacao;
+    private boolean ativo;
 }

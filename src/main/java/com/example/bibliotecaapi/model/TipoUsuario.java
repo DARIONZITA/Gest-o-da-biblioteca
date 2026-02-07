@@ -1,6 +1,7 @@
 package com.example.bibliotecaapi.model;
 
-public enum PerfilUsuario {
+public enum TipoUsuario {
     ADMIN,
-    MEMBER
+    FUNCIONARIO,
+    COMUM
 }
